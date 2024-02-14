@@ -1,12 +1,12 @@
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const index = () => {
+const Cart = () => {
   return (
     <SafeAreaView>
-      <Text>index</Text>
+      <Text>cart</Text>
     </SafeAreaView>
   );
 };
 
-export default index;
+export default Cart;
