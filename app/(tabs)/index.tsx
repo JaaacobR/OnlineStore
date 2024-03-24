@@ -1,5 +1,5 @@
 import { Image } from "react-native";
-import { Screen } from "@/components";
+import { ProductItem, Screen } from "@/components";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS_QUERY } from "@/graphql/getProducts";
 import { Product, Query } from "@/__generated__/graphql";
@@ -15,14 +15,7 @@ const index = () => {
   }, [data]);
 
   const renderProducts = (item: Product) => {
-    const { images } = item;
-    return (
-      <Image
-        key={item.id}
-        style={{ width: 200, height: 200 }}
-        source={{ uri: images[0] }}
-      />
-    );
+    return <ProductItem product={item} />;
   };
 
   return (
@@ -31,6 +24,7 @@ const index = () => {
         data={products}
         numColumns={2}
         renderItem={({ item }) => renderProducts(item)}
+        estimatedItemSize={200}
       />
     </Screen>
   );
